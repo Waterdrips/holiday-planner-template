@@ -1,38 +1,42 @@
 # Holiday planner: agent instructions
 
-Use this file to build a phone-friendly holiday planner for a trip: a single static web page on GitHub Pages that lists walks, places to eat, towns, things to do and essentials near where we're staying, each with its distance from our base and a Google Maps link.
+Use this file to build a phone-friendly holiday planner for a trip: a single static web page on GitHub Pages that lists walks, places to eat, towns, things to do and essentials near where you're staying, each with its distance from your base and a Google Maps link.
 
-The page in `reference/index.html` is the finished Forest of Dean planner (Oct 2026, live at https://waterdrips.github.io/forest-of-dean-trip/). Start from a copy of it and replace the data; don't redesign from scratch.
+The page in `reference/index.html` is a finished example: a Forest of Dean trip with a dog and babies ([live](https://waterdrips.github.io/forest-of-dean-trip/)). Start from a copy of it and replace the data; don't redesign from scratch.
+
+**Preferences:** if a `PREFERENCES.md` sits next to this file (or the user points you to one), read it first. It holds this group's usual party, tastes and defaults, and it overrides the generic defaults below. To make the template your own, replace it with your own `PREFERENCES.md`, or delete it to use the generic defaults.
 
 ## 1. Get the brief
 
-Ask for anything below that the prompt doesn't give, in one message, then get on with it:
+Ask for anything below that the prompt or `PREFERENCES.md` doesn't answer, in one message, then get on with it:
 
-- **Base:** the address or postcode where we're staying.
+- **Base:** the address or postcode of where you're staying.
 - **Dates:** arrival and departure.
-- **Are we taking the dog?** Always ask; don't assume. It changes the whole plan (see "Trip modes" below). If yes: anything that matters (nervous, needs space, off-lead recall).
-- **Are we taking the baby or babies?** Always ask. If yes: ages, and whether we have prams, carriers or both.
-- **Who else is coming:** other adults and children.
-- **Eating:** roughly how many nights out vs in, dietary needs, and the kind of place we like (e.g. "spacious and relaxed").
+- **Who's coming:** adults and children (with ages).
+- **Dogs:** always ask whether a dog is coming; don't assume, even if one usually does. It changes the whole plan (see "Trip modes" below). If yes: anything that matters (nervous, needs space, off-lead recall).
+- **Babies and toddlers:** always ask whether they're coming. If yes: ages, and prams, carriers or both.
+- **Focus:** what the trip is for: walking, food, culture, activities, relaxing. Ask; don't assume.
+- **Eating:** roughly how many nights out vs in, dietary needs, budget, and the kind of place you like (e.g. "spacious and relaxed").
 - **Daily rhythm:** e.g. "leave at 9am, walk in the morning, then lunch in a town and wander the afternoon".
-- **Preferences:** towns vs attractions, walk length and difficulty, how far we'll drive.
-- **Format:** by default a list grouped by area, not a day-by-day itinerary (we found the day plan too rigid). Only plan by day if asked.
-- **Publishing:** public repo on the `Waterdrips` GitHub account unless told otherwise.
+- **Preferences:** towns vs attractions, walk length and difficulty, how far you'll drive.
+- **Format:** by default a list grouped by area, not a day-by-day itinerary (a day plan tends to be too rigid). Only plan by day if asked.
+- **Publishing:** public or private repo. It always goes on the GitHub account `gh` is logged in to.
 
-Defaults if not given: we prefer towns over paid attractions and we're happy to drive up to about 30 minutes. If babies come, we have carriers.
+Generic defaults if neither the prompt nor `PREFERENCES.md` says: a list by area, about 30 minutes' maximum drive, and a mix of walks, food and towns.
 
 ### Trip modes
 
-**With the dog:**
-- **Daily rhythm:** a dog walk every morning, then lunch and an afternoon out.
+**With a dog:**
+- **Daily rhythm:** plan a dog walk every day.
 - **Dog-friendly everything:** every place to eat must welcome dogs.
-- **Dinners:** spacious and relaxed, with room for a nervous dog. Expect to eat in on some nights.
+- **Dinners:** relaxed places with room for the dog. If the dog is nervous, roomy places, quiet corners and heated outdoor seating. Expect some nights eating in.
 - **Weighting:** walks are a big part of the list.
 
-**Without the dog:**
-- **Walking:** we'll walk less. Keep a handful of good walks, but don't lead with them.
+**Without a dog:**
 - **Dog policies don't matter.** Drop the "Ring ahead: dog policy" flags and the dog-specific notes, and don't let dog-friendliness narrow the choices.
-- **Focus on food. We love it.** Expect more evening meals out, and make eating the centre of the plan:
+- **Focus:** weight the list towards whatever the group said it wants (food, culture, activities). Walks are usually fewer.
+
+**Food-focused trips** (the group says it loves food, or `PREFERENCES.md` says so): expect more evening meals out, and make eating the centre of the plan:
   - **Dinners:** the best restaurants and gastropubs in range, including tasting menus, Michelin- or AA-rosette-listed places and local favourites. Note price level, booking lead time and whether they're likely to be full in school holidays.
   - **Lunches and brunches** worth a detour.
   - **Food experiences:** bakeries, delis, farm shops, food halls, markets and market days, cheese, wine, cider and gin producers, breweries, tastings and cookery classes.
@@ -40,7 +44,7 @@ Defaults if not given: we prefer towns over paid attractions and we're happy to 
   - **Filters:** split dinner into "special" and "relaxed" (e.g. type keys `dinner-special`, `dinner`).
 - **Food claims need a source.** Only say "Michelin" or "rosette" if a source shows it; otherwise describe the food from reviews and say it's from reviews.
 
-**With babies:**
+**With babies or toddlers:**
 - **Child-friendly places:** check that places welcome babies.
 - **Timing:** prefer early dinner slots (5–6pm).
 - **Walks:** note which ones work with a pram or need a carrier.
@@ -56,16 +60,16 @@ Use web search. Cover every category, aiming for 60–80 places in total:
 | `walk` | Walks from the door, short scenic walks, a couple of big ones, flat options for bad weather. Note length, steepness and whether a pram works. |
 | `breakfast` | Breakfast and brunch cafés, and bakeries that open early. |
 | `lunch` | Cafés and pubs, especially ones at or near walk start points. |
-| `dinner` | With the dog: relaxed, roomy places with space for a nervous dog (big pubs, hotels with dog areas, heated outdoor seating). Without the dog: the best food in range, with plenty of options (see Trip modes). |
+| `dinner` | With a dog: relaxed places with room for it (big pubs, hotels with dog areas, heated outdoor seating). Food-focused: the best food in range, with plenty of options (see Trip modes). |
 | `town` | Towns and villages worth wandering, with what to see. |
-| `todo` | Attractions that allow dogs (railways, castles, gardens, crafts). |
+| `todo` | Attractions (railways, castles, gardens, crafts), only ones that allow dogs if one is coming. |
 | `rainy` | Indoor or covered options. |
 | `food` | Supermarkets, delis, farm shops, bakeries, food halls for nights in. |
-| `essential` | Vets, pharmacies, pet shops, urgent care / minor injuries, supermarkets. |
+| `essential` | Pharmacies, urgent care / minor injuries, supermarkets, and vets and pet shops if a dog is coming. |
 
 Rules:
 
-- **Dog and child policies** (when they're coming): only state what a source says. If no source confirms a venue's dog policy, set `check: true`. The page shows "Ring ahead: dog policy not confirmed" for those. Without the dog, reword that label or drop it.
+- **Dog and child policies** (when dogs or children are coming): only state what a source says. If no source confirms a venue's dog policy, set `check: true`. The page shows "Ring ahead: dog policy not confirmed" for those. Without a dog, reword that label or drop it.
 - **Exclusions:** if a famous local attraction bans dogs or pushchairs, say so in the Tips box rather than listing it.
 - **Season:** check school holidays (book dinners early), clock changes and sunset time, and off-season closures. Put them in Tips.
 - **Don't invent facts:** no made-up opening hours, phone numbers, postcodes or "Michelin" claims. Quote sources' claims as claims.
@@ -88,7 +92,7 @@ Rules:
 
 ## 5. Photos: credit everything
 
-We only use freely licensed photos from Wikimedia Commons, and every photo is credited. No images scraped from venue sites, Google, Tripadvisor or Instagram.
+Only use freely licensed photos from Wikimedia Commons, and every photo is credited. No images scraped from venue sites, Google, Tripadvisor or Instagram.
 
 1. List English Wikipedia article titles for places, villages and landmarks (one per line), e.g. `Tintern Abbey`, `Symonds Yat`, `Coleford, Gloucestershire`.
 2. Run `python3 -I tools/photos.py titles.txt photos.json`. It takes each article's lead image, keeps it only if it's on Commons, and records the thumbnail URL, file page, artist, licence and licence URL. It batches requests (Wikimedia rate-limits single calls).
@@ -109,18 +113,19 @@ Each place is:
 
 ```js
 {id:"short-id", a:"area-id", n:"Name, Town", t:["walk","lunch"], mi:3, min:8, mode:"walking"?, q:"Google Maps query",
- note:"What it is and why it suits us (dog/baby details).", near:"What it's close to", check:true?}
+ note:"What it is and why it suits the group (dog/baby details).", near:"What it's close to", check:true?}
 ```
 
 Keep what's already in the page: mobile-first layout, light and dark mode, sticky filter chips, search, "Hide done", Star (shortlist) and Mark done (saved per phone in localStorage), a "Directions back to base" button, and sorting by distance within each area. No build step, no frameworks, no external JS.
 
 ## 7. Publish and check
 
-1. Repo name: `<place>-trip` (add the year if that name is taken), in its own folder under `~/code/`. Add a short README with the live link.
-2. `git init -b main`, commit, `gh repo create Waterdrips/<name> --public --source . --push`.
-3. Turn on Pages: `gh api -X POST repos/Waterdrips/<name>/pages -f "source[branch]=main" -f "source[path]=/"`.
-4. Wait for `gh api repos/Waterdrips/<name>/pages/builds/latest --jq .status` to be `built`, then open the live URL at phone width. Check: cards render, filters work, a photo opens and loads with its credit, Directions links point at the base.
-5. Reply with the link and a short summary of what's in it, what's unconfirmed, and the sources.
+1. Get the GitHub account: `OWNER=$(gh api user --jq .login)`. If `gh` isn't logged in, ask the user to run `gh auth login`.
+2. Repo name: `<place>-trip` (add the year if that name is taken). Ask where to create the folder if it isn't obvious; by default, put it next to this template's folder. Add a short README with the live link.
+3. `git init -b main`, commit, then `gh repo create $OWNER/<name> --public --source . --push` (or `--private` if asked; Pages on a private repo needs a paid GitHub plan).
+4. Turn on Pages: `gh api -X POST repos/$OWNER/<name>/pages -f "source[branch]=main" -f "source[path]=/"`.
+5. Wait for `gh api repos/$OWNER/<name>/pages/builds/latest --jq .status` to be `built`, then open the live URL at phone width. Check: cards render, filters work, a photo opens and loads with its credit, Directions links point at the base.
+6. Reply with the link and a short summary of what's in it, what's unconfirmed, and the sources.
 
 ## Don'ts
 

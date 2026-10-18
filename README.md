@@ -16,6 +16,7 @@ Example: [Forest of Dean planner](https://waterdrips.github.io/forest-of-dean-tr
 - [`PREFERENCES.md`](PREFERENCES.md): the template owner's own preferences. **Delete it or replace it with yours.**
 - [`data.json`](data.json): everything about a trip. This one is the Forest of Dean example; the agent replaces it.
 - `index.html`, `sw.js`, `manifest.webmanifest`, icons: the app. No build step.
+- [`ROADMAP.md`](ROADMAP.md): planned improvements, in priority order.
 - [`tools/`](tools): `geo.py` (coordinates and real drive times), `photos.py` (credited Wikimedia photos), `phones.py` (numbers from venue sites), `validate.py`, `check_links.py`. Plain Python 3, no installs.
 - `.github/workflows/`: validates `data.json` on push, and checks links weekly, opening an issue when one breaks.
 

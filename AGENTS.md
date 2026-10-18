@@ -73,6 +73,20 @@ Rules:
 - **Dog and child policies** (when they're coming): only state what a source says. If no source confirms it, set `"check": true`; the page shows `trip.checkLabel` on those.
 - **Exclusions:** if a famous local attraction bans dogs or pushchairs, say so in `tips` rather than listing it.
 - **Season:** check school holidays (book dinners early), clock changes and sunset time, and off-season closures. Put them in `tips`.
+- **Opening hours on the trip dates:** for every place to eat and every attraction, check the hours for the exact trip dates on its own website, especially Monday and Tuesday closures and switches to winter hours in October and November. Hand-checked hours go in `hours` with `hoursSource` (the URL). `tools/hours.py` fills in the rest from OpenStreetMap.
+- **What's on:** search for events on the trip dates and add them to `events`, each with a source `url`:
+  - school-holiday and seasonal family events (e.g. half-term and Halloween);
+  - market days and food festivals;
+  - natural events (tides, bores, migrations, dark-sky nights);
+  - talks and tours at the attractions you've listed.
+- **Emergency:** always fill `emergency`, with phone numbers from official sources (NHS, hospital trust, the RCVS Find a Vet register):
+  - 999 and NHS 111 (or the country's equivalents);
+  - the nearest 24-hour A&E;
+  - the nearest minor injuries unit, with its hours;
+  - if a dog is coming, a 24-hour emergency vet (`"kind": "vet-24h"`) and the nearest daytime vet.
+- **Dog details** (with a dog): for each place to eat, record where dogs are allowed (`dog.where`), only from a source.
+- **Baby details** (with babies): high chairs, baby changing and buggy space (`baby`), only from a source.
+- **Prices:** `price` (£ to ££££) for food, and `cost` text for parking and entry, only when a menu or page shows them.
 - **Don't invent facts:** no made-up opening hours, phone numbers, postcodes or "Michelin" claims. Quote sources' claims as claims.
 - **Sources:** add every source you used to `sources` (`[name, url]`).
 
@@ -95,12 +109,30 @@ Copy the example's shape exactly:
    "note":"What it is and why it suits the group (dog/baby details).", "near":"What it's close to",
    "mi":3, "min":8, "mode":"walking (only for places within about a mile)", "check":true,
    "web":"https://verified-url", "photo":"Wikipedia article title", "geo":"better geocoder search text",
-   "walk":{"length":"About 3 mi loop", "difficulty":"Easy, wide gravel", "parking":"Car park (paid)", "toilets":true, "route":"https://official-route-page"}}
+   "walk":{"length":"About 3 mi loop", "difficulty":"Easy, wide gravel", "parking":"Car park (paid)", "toilets":true, "route":"https://official-route-page"},
+   "hours":{"mon":"closed","tue":"closed","wed":"17:00-20:00","thu":"17:00-20:00","fri":"12:00-15:00,17:00-20:30","sat":"…","sun":"…"},
+   "hoursSource":"https://venue-site (or OpenStreetMap)", "hoursNote":"Food times. Closed Mon and Tue until March.", "closedDates":["2026-10-27"],
+   "dog":{"where":"everywhere | bar only | separate dog area | some areas | outside only | not allowed", "notes":"Water bowls; quiet corner.", "source":"https://…"},
+   "baby":{"highChairs":true, "changing":true, "buggySpace":"plenty", "notes":"…", "source":"https://…"},
+   "price":"££", "cost":"Parking £5/day; entry £12 adults"}
   ```
+
+  The page warns on a card ("⚠️ Closed Mon 26") and in the booking form for any trip day that a place is closed, and has a "Known open" filter.
 
   `mi` and `min` can start as estimates; `tools/geo.py` replaces them. Give every place a `near` line so pairings are obvious ("Next to the Buckstone; 10 min to Monmouth").
 - **`pairings`** (walk, then lunch, then a town, in the same area) and **`tips`** are lists of short HTML strings (`<b>` is fine).
 - **`packing`**: `{"Group name": ["item", …]}`, e.g. Dog, Baby, Everyone.
+- **`trip.dog` and `trip.babies`** (true or false) switch the dog and baby lines, the Baby-friendly filter, and the out-of-hours vet check.
+- **`events`:**
+
+  ```json
+  {"id":"short-id", "name":"Severn Bore", "date":"2026-10-27", "time":"08:20", "end":"09:00", "endDate":"(multi-day only)",
+   "placeId":"a place id (or place + q)", "note":"…", "url":"https://source"}
+  ```
+
+  One-day events show on that night in Nights & bookings; all of them are in What's on.
+- **`emergency`**: `[{label, name, phone, address, q, note, source, kind}]`. They show in the 🚑 Emergency box with Call and Directions buttons.
+- **The ring-ahead checklist** is built from every place with `"check": true`. Give those places a phone number where you can.
 - **`photos`** is filled in by `tools/photos.py`; don't write it by hand.
 
 ## 4. Run the tools
@@ -112,9 +144,10 @@ All are plain Python 3 with no dependencies. Run them in this order from the rep
    - A walk should use the coordinates of its start point (e.g. the car park).
    - If routing picks a silly route, set `mi`/`min` by hand with `"fixedDistance": true`.
 2. **`python3 -I tools/photos.py data.json`**: for each place's `photo` (a Wikipedia article title), stores a freely licensed Wikimedia Commons image and its full credit. Places without a free image lose their `photo`.
-3. **`python3 -I tools/phones.py data.json`**: takes each venue's phone number from the `tel:` link on its own website (`web`), with `phoneSource`. Tourism and aggregator pages are skipped. If a page lists several numbers, check the first one is really the venue's and remove it if unsure.
-4. **`python3 -I tools/validate.py data.json`**: must finish with 0 errors. Fix warnings where you can.
-5. **`python3 -I tools/check_links.py data.json`**: every `web` link and photo should load. Replace or remove broken links.
+3. **`python3 -I tools/hours.py data.json`**: matches places to OpenStreetMap features with opening hours. It fills `hours`, `hoursRaw`, `closedDates` and `hoursSource: "OpenStreetMap"`, and keeps hours you set by hand. Check the matches it prints, since a similar name can match the wrong business. Remove wrong ones by deleting those fields and setting your own `hours`.
+4. **`python3 -I tools/phones.py data.json`**: takes each venue's phone number from the `tel:` link on its own website (`web`) or its contact page, with `phoneSource`. Tourism and aggregator pages are skipped. If a page lists several numbers, check the first one is really the venue's. If it isn't, remove it and set `"phoneSkip": true`.
+5. **`python3 -I tools/validate.py data.json`**: must finish with 0 errors. Fix warnings where you can.
+6. **`python3 -I tools/check_links.py data.json`**: every `web` link and photo should load. Replace or remove broken links.
 
 ## 5. Links
 
@@ -155,7 +188,8 @@ Only freely licensed photos from Wikimedia Commons, all credited: `tools/photos.
 ## What the page does (don't rebuild it)
 
 - **Browsing:** a list grouped by area, filters, search, a map (Leaflet and OpenStreetMap), and Near me (sorts by distance from your location).
-- **On each card:** a credited photo, walk details and a footpath map link, Directions, Map, Website or Search, Call, Book, Star, Mark done, and personal notes with a star rating.
+- **On each card:** a credited photo, walk details and a footpath map link, opening hours for each trip day with closure warnings, dog, baby and price details, Directions, Map, Website or Search, Call, Book (which warns about closed days), Star, Mark done, and personal notes with a star rating.
+- **What's on:** events on the trip dates. **🚑 Emergency:** 999, NHS 111, A&E, minor injuries and the emergency vet. **Ring-ahead checklist:** unconfirmed places with Call buttons and "Confirmed" ticks.
 - **Weather:** the forecast with sunset times (Open-Meteo), and a "rainy-day ideas" button on wet days.
 - **Nights & bookings:** night by night, out (booked) or eating in.
 - **Share picks:** sends stars, bookings and nights in as a link that the others merge into their own phone.

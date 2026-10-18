@@ -14,7 +14,9 @@
   "countryCodes": "gb",
   "storagePrefix": "fod",
   "checkLabel": "Ring ahead: dog policy not confirmed",
-  "timezone": "Europe/London"
+  "timezone": "Europe/London",
+  "dog": true,
+  "babies": true
  },
  "types": [
   {
@@ -44,6 +46,10 @@
   {
    "id": "todo",
    "label": "🎟️ Things to do"
+  },
+  {
+   "id": "ancient",
+   "label": "🪨 Prehistoric sites"
   },
   {
    "id": "rainy",
@@ -237,19 +243,49 @@
    "lat": 51.8106,
    "lon": -2.65541,
    "geoApprox": true,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "We-Sa 12:00-15:00,18:00-22:30; Su 12:00-17:30; 2026 Oct 10-14 off; 2026 Dec 28-31 off; 2027 Jan 01-05 off",
+   "hours": {
+    "wed": "12:00-15:00,18:00-22:30",
+    "thu": "12:00-15:00,18:00-22:30",
+    "fri": "12:00-15:00,18:00-22:30",
+    "sat": "12:00-15:00,18:00-22:30",
+    "sun": "12:00-17:30",
+    "mon": "closed",
+    "tue": "closed"
+   },
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "White Horse Inn",
+   "closedDates": [
+    "2026-10-10",
+    "2026-10-11",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-12-28",
+    "2026-12-29",
+    "2026-12-30",
+    "2026-12-31",
+    "2027-01-01",
+    "2027-01-02",
+    "2027-01-03",
+    "2027-01-04",
+    "2027-01-05"
+   ],
+   "hoursNote": "Closed Mon and Tue."
   },
   {
    "id": "yatrock",
    "a": "doorstep",
    "n": "Symonds Yat Rock",
    "t": [
-    "walk"
+    "walk",
+    "ancient"
    ],
    "mi": 2.8,
    "min": 9,
    "q": "Symonds Yat Rock car park",
-   "note": "A famous viewpoint over a loop of the River Wye. The path from the car park to the viewpoint is short and easy. There's parking, toilets and bins.",
+   "note": "A famous viewpoint over a loop of the River Wye, inside an Iron Age promontory fort: the path from the car park crosses its banks and ditches. The path to the viewpoint is short and easy. There's parking, toilets and bins.",
    "near": "Start of the Biblins loop; 1 mi above the Saracens Head",
    "web": "https://www.forestryengland.uk/symonds-yat-rock",
    "photo": "Symonds Yat",
@@ -308,7 +344,12 @@
    "town": "Symonds Yat East",
    "lat": 51.84042,
    "lon": -2.63828,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "bar only",
+    "notes": "Dogs allowed in the bar area and outside.",
+    "source": "https://visitdeanwye.co.uk/food-and-drink/dog-friendly-places-to-eat"
+   }
   },
   {
    "id": "perrygrove",
@@ -354,7 +395,12 @@
    "geo": "Clearwell Caves",
    "lat": 51.77122,
    "lon": -2.61435,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "outside only",
+    "notes": "Dogs welcome on the surface but not in the caves: take turns.",
+    "source": "https://tudorfarmhousehotel.co.uk/8-things-to-do-in-the-forest-of-dean-when-its-raining/"
+   }
   },
   {
    "id": "tudor",
@@ -367,9 +413,8 @@
    "mi": 4.3,
    "min": 12,
    "q": "Tudor Farmhouse Hotel, Clearwell",
-   "note": "A smarter restaurant with rooms. Listed as dog-friendly. Good for a treat night.",
+   "note": "A smarter restaurant with rooms. Dogs aren't allowed in the restaurant, but can join you in the conservatory or garden: ask for the conservatory when booking.",
    "near": "In Clearwell village, by the caves",
-   "check": true,
    "web": "https://tudorfarmhousehotel.co.uk/",
    "photo": "Clearwell",
    "town": "Clearwell",
@@ -377,7 +422,27 @@
    "lon": -2.62058,
    "routed": true,
    "phone": "01594 833046",
-   "phoneSource": "https://tudorfarmhousehotel.co.uk/"
+   "phoneSource": "https://tudorfarmhousehotel.co.uk/",
+   "hours": {
+    "mon": "08:00-10:00,12:00-14:00,18:00-21:00",
+    "tue": "08:00-10:00,12:00-14:00,18:00-21:00",
+    "wed": "08:00-10:00,12:00-14:00,18:00-21:00",
+    "thu": "08:00-10:00,12:00-14:00,18:00-21:00",
+    "fri": "08:00-10:00,12:00-14:00,18:00-21:00",
+    "sat": "08:00-10:00,12:00-14:00,18:00-21:00",
+    "sun": "08:00-10:00,12:30-15:00,18:00-21:00"
+   },
+   "hoursNote": "Breakfast, lunch and dinner times. Booking advised.",
+   "hoursSource": "https://tudorfarmhousehotel.co.uk/",
+   "dog": {
+    "where": "some areas",
+    "notes": "Not in the restaurant: dogs can join you in the garden and conservatory.",
+    "source": "https://tudorfarmhousehotel.co.uk/"
+   },
+   "baby": {
+    "notes": "Children are welcome in the restaurant.",
+    "source": "https://tudorfarmhousehotel.co.uk/"
+   }
   },
   {
    "id": "ostrich",
@@ -444,7 +509,12 @@
    "geo": "Beechenhurst Lodge",
    "lat": 51.80606,
    "lon": -2.56094,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "separate dog area",
+    "notes": "Dogs sit in \"the snug\", just inside on the right.",
+    "source": "https://www.forestryengland.uk/beechenhurst/beechenhurst-cafe"
+   }
   },
   {
    "id": "cannop",
@@ -515,7 +585,12 @@
    "lon": -2.55218,
    "routed": true,
    "phone": "01594 822607",
-   "phoneSource": "https://thespeechhouse.co.uk/"
+   "phoneSource": "https://thespeechhouse.co.uk/",
+   "dog": {
+    "where": "some areas",
+    "notes": "Heated outdoor dining dens are dog-friendly; ask about indoors when booking.",
+    "source": "https://www.forestholidays.co.uk/forestipedia/forest-of-dean-pubs/"
+   }
   },
   {
    "id": "whitemead",
@@ -535,7 +610,11 @@
    "geo": "Whitemead Forest Park",
    "lat": 51.7661,
    "lon": -2.56187,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "everywhere",
+    "notes": "Indoor and outdoor seating, water bowls and dog biscuits."
+   }
   },
   {
    "id": "fancy",
@@ -585,7 +664,12 @@
    "lat": 51.7814,
    "lon": -2.52706,
    "geoApprox": true,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "outside only",
+    "notes": "Outdoor seating by the lake; water bowls and dog treats.",
+    "source": "https://visitdeanwye.co.uk/food-and-drink/mallards-pike-cafe-p1440101"
+   }
   },
   {
    "id": "soudley",
@@ -651,7 +735,19 @@
    "town": "Monmouth",
    "lat": 51.81223,
    "lon": -2.7152,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "Mo-Th 10:00-23:00; Fr-Sa 10:00-00:00; Su 10:00-23:00",
+   "hours": {
+    "mon": "10:00-23:00",
+    "tue": "10:00-23:00",
+    "wed": "10:00-23:00",
+    "thu": "10:00-23:00",
+    "fri": "10:00-00:00",
+    "sat": "10:00-00:00",
+    "sun": "10:00-23:00"
+   },
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "The Punch House"
   },
   {
    "id": "coffilab",
@@ -669,7 +765,23 @@
    "town": "Monmouth",
    "lat": 51.81024,
    "lon": -2.71821,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "Mo-Fr 07:30-17:30; Sa 08:00-17:30; Su 08:30-17:30",
+   "hours": {
+    "mon": "07:30-17:30",
+    "tue": "07:30-17:30",
+    "wed": "07:30-17:30",
+    "thu": "07:30-17:30",
+    "fri": "07:30-17:30",
+    "sat": "08:00-17:30",
+    "sun": "08:30-17:30"
+   },
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Coffi Lab",
+   "dog": {
+    "where": "some areas",
+    "notes": "Big outdoor area at the back and a dog menu."
+   }
   },
   {
    "id": "estero",
@@ -687,7 +799,11 @@
    "town": "Monmouth",
    "lat": 51.80999,
    "lon": -2.71905,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "everywhere",
+    "notes": "Dogs allowed inside and out; water bowls and treats."
+   }
   },
   {
    "id": "kymin",
@@ -751,14 +867,29 @@
    "q": "Inn on the Wye, Kerne Bridge",
    "note": "A traditional pub-restaurant, dog- and family-friendly. Dogs are welcome in the restaurant and bar, and it's a larger venue.",
    "near": "Below Goodrich Castle; 10 min to Ross",
-   "check": true,
    "web": "https://www.innonthewye.co.uk/",
    "town": "Kerne Bridge",
    "lat": 51.86858,
    "lon": -2.60977,
    "routed": true,
    "phone": "01600 890872",
-   "phoneSource": "https://www.innonthewye.co.uk/"
+   "phoneSource": "https://www.innonthewye.co.uk/",
+   "hours": {
+    "mon": "closed",
+    "tue": "closed",
+    "wed": "17:00-20:00",
+    "thu": "17:00-20:00",
+    "fri": "12:00-15:00,17:00-20:30",
+    "sat": "12:00-15:00,17:00-20:30",
+    "sun": "12:00-15:00,17:00-19:00"
+   },
+   "hoursNote": "Food times. Closed all day Mon and Tue from 5 Oct until 23 Mar.",
+   "hoursSource": "https://www.innonthewye.co.uk/",
+   "dog": {
+    "where": "everywhere",
+    "notes": "Welcome in all areas of the hotel, bar and restaurant.",
+    "source": "https://www.innonthewye.co.uk/"
+   }
   },
   {
    "id": "ross",
@@ -797,7 +928,12 @@
    "town": "Ross-on-Wye",
    "lat": 51.9148,
    "lon": -2.58771,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "everywhere",
+    "notes": "Entirely dog-friendly, with a wood burner.",
+    "source": "https://visitrossonwye.com/?p=5578"
+   }
   },
   {
    "id": "royal",
@@ -834,7 +970,12 @@
    "town": "Ross-on-Wye",
    "lat": 51.91422,
    "lon": -2.58511,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "outside only",
+    "notes": "Quiet courtyard garden at the back.",
+    "source": "https://visitrossonwye.com/?p=5578"
+   }
   },
   {
    "id": "thorns",
@@ -852,7 +993,12 @@
    "lat": 51.91408,
    "lon": -2.58384,
    "geoApprox": true,
-   "routed": true
+   "routed": true,
+   "dog": {
+    "where": "outside only",
+    "notes": "Plenty of space on the outdoor terrace.",
+    "source": "https://visitrossonwye.com/?p=5578"
+   }
   },
   {
    "id": "victorias",
@@ -976,7 +1122,10 @@
    "geo": "Tintern Abbey",
    "lat": 51.69707,
    "lon": -2.67669,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "Jul-Aug: Mo-Su 09:30-18:00; Sep-Jun: Mo-Su 09:30-17:00",
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Tintern Abbey"
   },
   {
    "id": "wyndcliff",
@@ -1026,7 +1175,10 @@
    "lon": -2.67505,
    "routed": true,
    "phone": "0300 0252239",
-   "phoneSource": "https://cadw.gov.wales/visit/places-to-visit/chepstow-castle"
+   "phoneSource": "https://cadw.gov.wales/visit/places-to-visit/chepstow-castle",
+   "hoursRaw": "Mar 01-Jun 30,Sep 01-Oct 31 09:30-17:00; Jul 01-Aug 31 09:30-18:00; Nov 01-Feb 28 10:00-16:00; Dec 24-26 off; Jan 01 off",
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Chepstow Castle"
   },
   {
    "id": "marmalade",
@@ -1045,7 +1197,19 @@
    "town": "Chepstow",
    "lat": 51.64134,
    "lon": -2.67605,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "Mo-Su 09:00-17:00",
+   "hours": {
+    "mon": "09:00-17:00",
+    "tue": "09:00-17:00",
+    "wed": "09:00-17:00",
+    "thu": "09:00-17:00",
+    "fri": "09:00-17:00",
+    "sat": "09:00-17:00",
+    "sun": "09:00-17:00"
+   },
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Marmalade House Vintage Tea Rooms"
   },
   {
    "id": "uglymug",
@@ -1083,7 +1247,19 @@
    "town": "Chepstow",
    "lat": 51.64131,
    "lon": -2.67571,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "Mo-Th 09:00-23:00; Fr-Sa 09:00-00:00; Su 09:00-23:00",
+   "hours": {
+    "mon": "09:00-23:00",
+    "tue": "09:00-23:00",
+    "wed": "09:00-23:00",
+    "thu": "09:00-23:00",
+    "fri": "09:00-00:00",
+    "sat": "09:00-00:00",
+    "sun": "09:00-23:00"
+   },
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Pontio Lounge"
   },
   {
    "id": "dfr",
@@ -1107,7 +1283,12 @@
    "lon": -2.53957,
    "routed": true,
    "phone": "01594 845840",
-   "phoneSource": "https://deanforestrailway.co.uk/"
+   "phoneSource": "https://deanforestrailway.co.uk/",
+   "dog": {
+    "where": "some areas",
+    "notes": "Dogs allowed on the trains, not in the café or dining car.",
+    "source": "https://tudorfarmhousehotel.co.uk/8-things-to-do-in-the-forest-of-dean-when-its-raining/"
+   }
   },
   {
    "id": "taurus",
@@ -1128,7 +1309,8 @@
    "town": "Lydney",
    "lat": 51.71694,
    "lon": -2.54886,
-   "routed": true
+   "routed": true,
+   "phoneSkip": true
   },
   {
    "id": "harbour",
@@ -1402,7 +1584,20 @@
    "town": "Coleford, Gloucestershire",
    "lat": 51.79482,
    "lon": -2.61782,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "Tu-Sa 09:00-15:00; Mo 12:00-15:00; Su off",
+   "hours": {
+    "tue": "09:00-15:00",
+    "wed": "09:00-15:00",
+    "thu": "09:00-15:00",
+    "fri": "09:00-15:00",
+    "sat": "09:00-15:00",
+    "mon": "12:00-15:00",
+    "sun": "closed"
+   },
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Sixteen Community Cafe",
+   "hoursNote": "Mon from 12:00."
   },
   {
    "id": "victoriasb",
@@ -1459,7 +1654,19 @@
    "town": "Ross-on-Wye",
    "lat": 51.9142,
    "lon": -2.58452,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "10:00-16:00",
+   "hours": {
+    "mon": "10:00-16:00",
+    "tue": "10:00-16:00",
+    "wed": "10:00-16:00",
+    "thu": "10:00-16:00",
+    "fri": "10:00-16:00",
+    "sat": "10:00-16:00",
+    "sun": "10:00-16:00"
+   },
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Ginger Nut Cafe"
   },
   {
    "id": "forestdeli",
@@ -1533,7 +1740,10 @@
    "town": "Monmouth",
    "lat": 51.81249,
    "lon": -2.71505,
-   "routed": true
+   "routed": true,
+   "hoursRaw": "Mo-Sa 07:30-16:00; Su Off",
+   "hoursSource": "OpenStreetMap",
+   "hoursName": "Thurabread Bakery"
   },
   {
    "id": "bakehouse",
@@ -1739,6 +1949,288 @@
    "geo": "Westbury Court Garden",
    "lat": 51.82284,
    "lon": -2.4098,
+   "routed": true
+  },
+  {
+   "id": "longstone",
+   "a": "doorstep",
+   "n": "The Long Stone, Staunton",
+   "t": [
+    "ancient"
+   ],
+   "q": "Long Stone, Staunton",
+   "note": "A Bronze Age standing stone about 7 ft tall, beside the main road between Coleford and Staunton. Local legend says it bleeds if you prick it at midnight. A quick roadside stop, not a walk.",
+   "near": "On the way to the Buckstone and the White Horse",
+   "town": "Staunton, Gloucestershire",
+   "geo": "Long Stone, Staunton",
+   "mi": 2.3,
+   "min": 7,
+   "lat": 51.80545,
+   "lon": -2.64068,
+   "routed": true
+  },
+  {
+   "id": "arthurscave",
+   "a": "monmouth",
+   "n": "King Arthur's Cave, Great Doward",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "q": "King Arthur's Cave, Great Doward",
+   "note": "A cave in a Herefordshire Wildlife Trust reserve where Ice Age hunters sheltered, with bones of mammoth and hyena found inside. Dogs welcome on a lead; open dawn to dusk. No surfaced paths.",
+   "near": "Above Symonds Yat West; pair it with Little Doward hillfort",
+   "town": "Great Doward",
+   "geo": "King Arthur's Cave",
+   "web": "https://www.herefordshirewt.org/node/419",
+   "photo": "King Arthur's Cave",
+   "walk": {
+    "length": "Short walk from the pull-in",
+    "difficulty": "Uneven woodland tracks",
+    "parking": "Small pull-in for 3–4 cars at the top of the reserve"
+   },
+   "mi": 11.1,
+   "min": 23,
+   "lat": 51.83713,
+   "lon": -2.66082,
+   "routed": true,
+   "phone": "01432 356872",
+   "phoneSource": "https://www.herefordshirewt.org/node/419"
+  },
+  {
+   "id": "littledoward",
+   "a": "monmouth",
+   "n": "Little Doward hillfort",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "q": "Little Doward Woods, Ganarew",
+   "note": "An Iron Age hillfort on a wooded hill facing Symonds Yat Rock across the Wye, in a Woodland Trust wood with views over the river.",
+   "near": "Just off the A40 north of Monmouth; near King Arthur's Cave",
+   "town": "Ganarew",
+   "geo": "Little Doward",
+   "web": "https://woodlandtrust.org.uk/visiting-woods/woods/little-doward-woods",
+   "photo": "Little Doward",
+   "walk": {
+    "length": "About 2 mi up to the fort and back",
+    "difficulty": "Steady climb, muddy in places",
+    "parking": "Woodland Trust car park on the Ganarew road"
+   },
+   "mi": 10.6,
+   "min": 22,
+   "lat": 51.8407,
+   "lon": -2.67054,
+   "routed": true,
+   "fixedDistance": true
+  },
+  {
+   "id": "welshbury",
+   "a": "lydney",
+   "n": "Welshbury hillfort",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "q": "Welshbury Wood, Flaxley",
+   "note": "A Middle Iron Age hillfort (from about 300 BC) hidden in Forestry England woodland, with banks and ditches under the trees and older field systems around it. Quiet and unsigned.",
+   "near": "Near Flaxley, 5 min from Westbury Court Garden",
+   "town": "Flaxley",
+   "geo": "Welshbury Wood",
+   "walk": {
+    "length": "About 1–2 mi on forest tracks",
+    "difficulty": "Moderate, muddy",
+    "parking": "Roadside forest pull-ins near Flaxley"
+   },
+   "mi": 11.0,
+   "min": 26,
+   "lat": 51.8372,
+   "lon": -2.46695,
+   "routed": true
+  },
+  {
+   "id": "haroldsstones",
+   "a": "lowerwye",
+   "n": "Harold's Stones, Trellech",
+   "t": [
+    "ancient"
+   ],
+   "q": "Harold's Stones, Trellech",
+   "note": "Three tall standing stones (up to 15 ft), probably late Neolithic or Bronze Age, in a field at the south end of Trellech. You can see them from the gate by the road.",
+   "near": "5 min from Cleddon Falls",
+   "town": "Trellech",
+   "geo": "Harold's Stones",
+   "photo": "Harold's Stones",
+   "mi": 12.1,
+   "min": 23,
+   "lat": 51.74277,
+   "lon": -2.72658,
+   "routed": true
+  },
+  {
+   "id": "lancaut",
+   "a": "lowerwye",
+   "n": "Lancaut fort and Offa's Dyke",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "q": "Tidenham Chase car park",
+   "note": "An Iron Age promontory fort on a loop of the Wye, near a well-preserved stretch of Offa's Dyke. From the free Tidenham Chase car park it's signposted across fields; keep dogs on a lead near livestock.",
+   "near": "Same car park as the Devil's Pulpit walk",
+   "town": "Tidenham",
+   "geo": "Tidenham Chase",
+   "web": "https://www.english-heritage.org.uk/visit/places/offas-dyke",
+   "walk": {
+    "length": "About 2 mi there and back",
+    "difficulty": "Moderate, muddy fields",
+    "parking": "Tidenham Chase (free)"
+   },
+   "mi": 10.9,
+   "min": 21,
+   "lat": 51.68352,
+   "lon": -2.64708,
+   "routed": true
+  },
+  {
+   "id": "bulwarks",
+   "a": "lowerwye",
+   "n": "Bulwarks Camp, Chepstow",
+   "t": [
+    "ancient"
+   ],
+   "q": "Bulwarks Camp, Chepstow",
+   "note": "A late Iron Age promontory fort on a cliff edge above the Wye, now a grassy recreation ground. Cadw site, free, open daily.",
+   "near": "South side of Chepstow, end of Alpha Road",
+   "town": "Chepstow",
+   "geo": "Bulwarks Camp, Chepstow",
+   "web": "https://cadw.gov.wales/visit/places-to-visit/chepstow-bulwarks-camp",
+   "mi": 16.3,
+   "min": 33,
+   "lat": 51.63161,
+   "lon": -2.66901,
+   "routed": true,
+   "phone": "0300 0251378",
+   "phoneSource": "https://cadw.gov.wales/contact-us"
+  },
+  {
+   "id": "chasehill",
+   "a": "ross",
+   "n": "Chase Hill hillfort, Ross",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "q": "Chase Wood, Ross-on-Wye",
+   "note": "A large Late Bronze Age / Early Iron Age hillfort on the wooded hill south of Ross. Paths through Chase Wood pass its rampart; the summit itself isn't always open.",
+   "near": "Edge of Ross; the Wye Valley Walk passes it",
+   "town": "Ross-on-Wye",
+   "geo": "Chase Wood, Ross-on-Wye",
+   "walk": {
+    "length": "About 3 mi loop from Ross",
+    "difficulty": "Steep climbs",
+    "parking": "In Ross"
+   },
+   "mi": 10.9,
+   "min": 28,
+   "lat": 51.89845,
+   "lon": -2.57549,
+   "routed": true
+  },
+  {
+   "id": "hettypegler",
+   "a": "further",
+   "n": "Hetty Pegler's Tump and Uley Bury",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "q": "Hetty Pegler's Tump, Uley",
+   "note": "A 5,000-year-old Neolithic long barrow you can crawl inside (bring a torch), a short walk from Uley Bury, one of the biggest Iron Age hillforts in the Cotswolds. Free, English Heritage.",
+   "near": "Cotswold edge above Dursley, across the Severn",
+   "check": true,
+   "town": "Uley",
+   "geo": "Hetty Pegler's Tump",
+   "photo": "Hetty Pegler's Tump",
+   "web": "https://www.english-heritage.org.uk/visit/places/uley-long-barrow-hetty-peglers-tump/",
+   "walk": {
+    "length": "About 3 mi linking both",
+    "difficulty": "Moderate",
+    "parking": "Lay-by on the B4066"
+   },
+   "mi": 35.2,
+   "min": 65,
+   "lat": 51.69865,
+   "lon": -2.3059,
+   "routed": true
+  },
+  {
+   "id": "arthursstone",
+   "a": "further",
+   "n": "Arthur's Stone, Dorstone",
+   "t": [
+    "ancient"
+   ],
+   "q": "Arthur's Stone, Dorstone",
+   "note": "A Neolithic chambered tomb over 5,000 years old on a ridge above the Golden Valley, with big views to the Black Mountains. Free, English Heritage; dogs on leads.",
+   "near": "Golden Valley, on the way to Hay-on-Wye",
+   "town": "Dorstone",
+   "geo": "Arthur's Stone, Dorstone",
+   "photo": "Arthur's Stone, Herefordshire",
+   "web": "https://www.english-heritage.org.uk/visit/places/arthurs-stone/",
+   "mi": 37.0,
+   "min": 60,
+   "lat": 52.08424,
+   "lon": -3.00003,
+   "routed": true
+  },
+  {
+   "id": "llanmelin",
+   "a": "further",
+   "n": "Llanmelin Wood hillfort",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "mi": 21.0,
+   "min": 45,
+   "q": "Llanmelin Wood Hillfort, Caerwent",
+   "note": "A large Iron Age hillfort of the Silures, thought to be the tribe's base before the Romans built Caerwent below it. Cadw site, free, in woodland; pair it with the Roman town walls at Caerwent.",
+   "near": "Above Caerwent, 15 min west of Chepstow",
+   "town": "Caerwent",
+   "lat": 51.62915,
+   "lon": -2.77951,
+   "web": "https://cadw.gov.wales/visit/places-to-visit/llanmelin-wood-hillfort",
+   "walk": {
+    "length": "Short woodland walk",
+    "difficulty": "Some climbing, muddy",
+    "parking": "Small lay-by on the lane"
+   },
+   "routed": true,
+   "phone": "0300 0251378",
+   "phoneSource": "https://cadw.gov.wales/contact-us"
+  },
+  {
+   "id": "grayhill",
+   "a": "further",
+   "n": "Gray Hill stone circle, Wentwood",
+   "t": [
+    "ancient",
+    "walk"
+   ],
+   "mi": 23.3,
+   "min": 47,
+   "q": "Gray Hill, Wentwood",
+   "note": "A small Bronze Age stone circle with two outlying standing stones on open hilltop above Wentwood Forest, with views over the Severn estuary. Keep dogs on a lead near grazing animals.",
+   "near": "Near Llanmelin Wood hillfort",
+   "town": "Llanvair Discoed",
+   "lat": 51.63764,
+   "lon": -2.81335,
+   "walk": {
+    "length": "About 2 mi there and back",
+    "difficulty": "Moderate climb",
+    "parking": "Wentwood Forest car parks"
+   },
    "routed": true
   }
  ],
@@ -2115,6 +2607,51 @@
    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
    "title": "Forest of Dean",
    "wiki": "https://en.wikipedia.org/wiki/Forest_of_Dean"
+  },
+  "Arthur's Stone, Herefordshire": {
+   "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Arthur%27s_Stone.JPG/960px-Arthur%27s_Stone.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Arthur%27s_Stone.JPG",
+   "artist": "UKgeofan",
+   "license": "CC BY-SA 3.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "title": "Arthur's Stone, Herefordshire",
+   "wiki": "https://en.wikipedia.org/wiki/Arthur%27s_Stone,_Herefordshire"
+  },
+  "Harold's Stones": {
+   "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Trellech_from_the_air.jpg/960px-Trellech_from_the_air.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Trellech_from_the_air.jpg",
+   "artist": "Aellis235",
+   "license": "CC BY-SA 4.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "title": "Harold's Stones",
+   "wiki": "https://en.wikipedia.org/wiki/Trellech"
+  },
+  "Hetty Pegler's Tump": {
+   "img": "https://upload.wikimedia.org/wikipedia/commons/9/96/Uley_Long_Barrow.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Uley_Long_Barrow.jpg",
+   "artist": "Martinevans123",
+   "license": "Public domain",
+   "licenseUrl": "",
+   "title": "Hetty Pegler's Tump",
+   "wiki": "https://en.wikipedia.org/wiki/Uley_Long_Barrow"
+  },
+  "King Arthur's Cave": {
+   "img": "https://upload.wikimedia.org/wikipedia/commons/d/d9/King_Arthur%27s_Cave_-_geograph.org.uk_-_88587.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:King_Arthur%27s_Cave_-_geograph.org.uk_-_88587.jpg",
+   "artist": "John Thorn",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "title": "King Arthur's Cave",
+   "wiki": "https://en.wikipedia.org/wiki/King_Arthur%27s_Cave"
+  },
+  "Little Doward": {
+   "img": "https://upload.wikimedia.org/wikipedia/commons/f/f4/View_from_The_Great_Doward_3_-_geograph.org.uk_-_1397857.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:View_from_The_Great_Doward_3_-_geograph.org.uk_-_1397857.jpg",
+   "artist": "Jonathan Billinger",
+   "license": "CC BY-SA 2.0",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "title": "Little Doward",
+   "wiki": "https://en.wikipedia.org/wiki/The_Doward"
   }
  },
  "pairings": [
@@ -2130,6 +2667,7 @@
  ],
  "tips": [
   "<b>It's half-term.</b> Book dinners early, and ask for a quiet corner table for the dog.",
+  "<b>Closed early in the week:</b> the White Horse (Staunton) and Inn on the Wye are closed on Mondays and Tuesdays. Cards show \"Closed\" warnings for each day of the trip.",
   "<b>Clocks went back on 25 Oct.</b> Sunset is about 4:50pm, so it's dark by 5:30pm. Pack head torches if you walk to the New Inn.",
   "<b>Wear boots:</b> leaves and mud make the paths slippery, especially carrying babies.",
   "<b>Keep the dog on a short lead in Wye Valley fields</b>; sheep and cattle graze there, and the Forest has free-roaming sheep and wild boar.",
@@ -2226,6 +2764,207 @@
   [
    "Puzzlewood opening hours",
    "https://puzzlewood.net/index.php/puzzlewood-prices-and-opening/puzzlewood-opening-hours"
+  ],
+  [
+   "Wye Valley AONB: hillforts above the Wye",
+   "https://www.wyevalley-nl.org.uk/hillforts-above-the-wye/"
+  ],
+  [
+   "Inn on the Wye opening hours",
+   "https://www.innonthewye.co.uk/"
+  ],
+  [
+   "Tudor Farmhouse FAQ",
+   "https://tudorfarmhousehotel.co.uk/"
+  ],
+  [
+   "Severn Bore timetable 2026",
+   "https://mail.severntales.co.uk/bore-timetable-2026.html"
+  ],
+  [
+   "Dean Heritage Centre events",
+   "https://www.deanheritagecentre.org/events/deanheritageevents.htm"
+  ],
+  [
+   "Clearwell Caves events",
+   "https://clearwellcaves.com/events/"
+  ],
+  [
+   "Gloucestershire Royal A&E",
+   "https://gloshospitals.org.uk/Wards-and-Departments/Departments/Accident-and-Emergency-Department"
+  ],
+  [
+   "Minor injury units",
+   "https://ghc.nhs.uk/our-teams-and-services/miius"
+  ],
+  [
+   "RCVS Find a Vet",
+   "https://www.rcvs.org.uk/animal-owners/find-a-vet"
+  ],
+  [
+   "Opening hours: OpenStreetMap contributors",
+   "https://www.openstreetmap.org/copyright"
   ]
+ ],
+ "events": [
+  {
+   "id": "bore-26",
+   "name": "Severn Bore (small, after dark)",
+   "date": "2026-10-26",
+   "time": "20:00",
+   "place": "Minsterworth",
+   "q": "Minsterworth, Gloucestershire",
+   "note": "A small (1-star) bore at Minsterworth. It's dark by then; arrive 20 minutes early.",
+   "url": "https://mail.severntales.co.uk/bore-timetable-2026.html"
+  },
+  {
+   "id": "bore-27am",
+   "name": "Severn Bore (small)",
+   "date": "2026-10-27",
+   "time": "08:20",
+   "place": "Minsterworth",
+   "q": "Minsterworth, Gloucestershire",
+   "note": "A small (1-star) morning bore at Minsterworth, about 35 min drive. Arrive 20 minutes early; times can shift by about 15 minutes.",
+   "url": "https://mail.severntales.co.uk/bore-timetable-2026.html"
+  },
+  {
+   "id": "bore-27pm",
+   "name": "Severn Bore (small, after dark)",
+   "date": "2026-10-27",
+   "time": "20:40",
+   "place": "Minsterworth",
+   "q": "Minsterworth, Gloucestershire",
+   "note": "Small evening bore.",
+   "url": "https://mail.severntales.co.uk/bore-timetable-2026.html"
+  },
+  {
+   "id": "bore-28",
+   "name": "Severn Bore (small)",
+   "date": "2026-10-28",
+   "time": "08:57",
+   "place": "Minsterworth",
+   "q": "Minsterworth, Gloucestershire",
+   "note": "A small (1-star) morning bore at Minsterworth. Arrive 20 minutes early.",
+   "url": "https://mail.severntales.co.uk/bore-timetable-2026.html"
+  },
+  {
+   "id": "dhc-spell",
+   "name": "Spell School",
+   "date": "2026-10-26",
+   "time": "13:30",
+   "end": "14:00",
+   "placeId": "soudley",
+   "note": "Halloween activity at the Dean Heritage Centre. Check booking and whether dogs can come.",
+   "url": "https://www.deanheritagecentre.org/events/deanheritageevents.htm"
+  },
+  {
+   "id": "dhc-crafts",
+   "name": "Autumn Crafts",
+   "date": "2026-10-27",
+   "time": "10:00",
+   "end": "11:30",
+   "placeId": "soudley",
+   "note": "At the Dean Heritage Centre.",
+   "url": "https://www.deanheritagecentre.org/events/deanheritageevents.htm"
+  },
+  {
+   "id": "dhc-bats",
+   "name": "Make Your Own Halloween Bats",
+   "date": "2026-10-28",
+   "time": "10:00",
+   "end": "13:00",
+   "placeId": "soudley",
+   "note": "Two sessions: 10:00–11:30 and 11:30–13:00, at the Dean Heritage Centre.",
+   "url": "https://www.deanheritagecentre.org/events/deanheritageevents.htm"
+  },
+  {
+   "id": "dhc-puppets",
+   "name": "Halloween Puppet Show",
+   "date": "2026-10-29",
+   "time": "11:00",
+   "end": "11:30",
+   "placeId": "soudley",
+   "note": "At the Dean Heritage Centre.",
+   "url": "https://www.deanheritagecentre.org/events/deanheritageevents.htm"
+  },
+  {
+   "id": "dhc-tea",
+   "name": "Monster Tea Party",
+   "date": "2026-10-30",
+   "time": "12:00",
+   "end": "14:00",
+   "placeId": "soudley",
+   "note": "At the Dean Heritage Centre.",
+   "url": "https://www.deanheritagecentre.org/events/deanheritageevents.htm"
+  },
+  {
+   "id": "pumpkins",
+   "name": "Count the Pumpkins (Halloween hunt)",
+   "date": "2026-10-24",
+   "endDate": "2026-11-01",
+   "time": "10:00",
+   "end": "17:00",
+   "placeId": "clearwell",
+   "note": "Free pumpkin-hunt sheets with cave entry; prize draw. Last entry 15:30. Book online. Dogs stay on the surface.",
+   "url": "https://clearwellcaves.com/events/"
+  },
+  {
+   "id": "broom",
+   "name": "Room on the Broom Trail",
+   "date": "2026-10-01",
+   "endDate": "2026-10-31",
+   "placeId": "sculpture",
+   "note": "A family trail at Beechenhurst, running until 31 October.",
+   "url": "https://www.forestryengland.uk/beechenhurst"
+  }
+ ],
+ "emergency": [
+  {
+   "label": "Emergency",
+   "name": "999 (ambulance, police, fire, coastguard)",
+   "phone": "999"
+  },
+  {
+   "label": "Urgent medical advice",
+   "name": "NHS 111 (phone or online)",
+   "phone": "111",
+   "url": "https://111.nhs.uk/"
+  },
+  {
+   "label": "Nearest 24-hour A&E",
+   "name": "Gloucestershire Royal Hospital",
+   "address": "Great Western Road, Gloucester GL1 3NN",
+   "q": "Gloucestershire Royal Hospital Emergency Department",
+   "phone": "0300 422 2222",
+   "note": "Open 24 hours, every day. About 45 min drive.",
+   "source": "https://gloshospitals.org.uk/Wards-and-Departments/Departments/Accident-and-Emergency-Department"
+  },
+  {
+   "label": "Minor injuries",
+   "name": "Forest of Dean Community Hospital, Minor Injury Unit",
+   "address": "Steam Mills Road, Cinderford",
+   "q": "Forest of Dean Community Hospital, Cinderford",
+   "note": "8am to 7.30pm (last walk-in 7.30pm). Sprains, simple fractures, cuts, minor burns. Hours can change: check with NHS 111.",
+   "source": "https://ghc.nhs.uk/our-teams-and-services/miius"
+  },
+  {
+   "label": "Emergency vet (24 hours)",
+   "name": "Severnside Veterinary Services, Lydney",
+   "address": "1 Tuthill, Lydney GL15 5PA",
+   "q": "Severnside Veterinary Services, 1 Tuthill, Lydney GL15 5PA",
+   "phone": "01594 842185",
+   "note": "Listed as offering a 24-hour emergency service. Ring first: out of hours, the recorded message gives the emergency number.",
+   "source": "https://www.rcvs.org.uk/animal-owners/find-a-vet/practices/severnside-veterinary-services-ltd-lydneygl15-5pa",
+   "kind": "vet-24h"
+  },
+  {
+   "label": "Nearest vet (daytime)",
+   "name": "Drybridge Veterinary Clinic, Coleford",
+   "address": "Railway Drive, Coleford GL16 8RH",
+   "q": "Drybridge Veterinary Clinic, Coleford",
+   "phone": "01594 833526",
+   "note": "Ask who covers their out-of-hours emergencies.",
+   "source": "https://www.rcvs.org.uk/animal-owners/find-a-vet/practices/drybridge-veterinary-clinic-colefordgl16-8rh"
+  }
  ]
 }

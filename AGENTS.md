@@ -10,15 +10,42 @@ Ask for anything below that the prompt doesn't give, in one message, then get on
 
 - **Base:** the address or postcode where we're staying.
 - **Dates:** arrival and departure.
-- **Who's coming:** adults, children and babies (ages), and whether we have prams, carriers or both.
-- **Dogs:** how many, and anything that matters (nervous, reactive, needs space, off-lead recall).
+- **Are we taking the dog?** Always ask; don't assume. It changes the whole plan (see "Trip modes" below). If yes: anything that matters (nervous, needs space, off-lead recall).
+- **Are we taking the baby or babies?** Always ask. If yes: ages, and whether we have prams, carriers or both.
+- **Who else is coming:** other adults and children.
 - **Eating:** roughly how many nights out vs in, dietary needs, and the kind of place we like (e.g. "spacious and relaxed").
 - **Daily rhythm:** e.g. "leave at 9am, walk in the morning, then lunch in a town and wander the afternoon".
 - **Preferences:** towns vs attractions, walk length and difficulty, how far we'll drive.
 - **Format:** by default a list grouped by area, not a day-by-day itinerary (we found the day plan too rigid). Only plan by day if asked.
 - **Publishing:** public repo on the `Waterdrips` GitHub account unless told otherwise.
 
-Defaults if not given: dogs and babies are with us, we have carriers, we prefer towns over paid attractions, and we're happy to drive up to about 30 minutes.
+Defaults if not given: we prefer towns over paid attractions and we're happy to drive up to about 30 minutes. If babies come, we have carriers.
+
+### Trip modes
+
+**With the dog:**
+- **Daily rhythm:** a dog walk every morning, then lunch and an afternoon out.
+- **Dog-friendly everything:** every place to eat must welcome dogs.
+- **Dinners:** spacious and relaxed, with room for a nervous dog. Expect to eat in on some nights.
+- **Weighting:** walks are a big part of the list.
+
+**Without the dog:**
+- **Walking:** we'll walk less. Keep a handful of good walks, but don't lead with them.
+- **Dog policies don't matter.** Drop the "Ring ahead: dog policy" flags and the dog-specific notes, and don't let dog-friendliness narrow the choices.
+- **Focus on food. We love it.** Expect more evening meals out, and make eating the centre of the plan:
+  - **Dinners:** the best restaurants and gastropubs in range, including tasting menus, Michelin- or AA-rosette-listed places and local favourites. Note price level, booking lead time and whether they're likely to be full in school holidays.
+  - **Lunches and brunches** worth a detour.
+  - **Food experiences:** bakeries, delis, farm shops, food halls, markets and market days, cheese, wine, cider and gin producers, breweries, tastings and cookery classes.
+  - **Section order:** put a "Dinners to book now" box near the top of the page, and list dinner, lunch and food shopping before walks.
+  - **Filters:** split dinner into "special" and "relaxed" (e.g. type keys `dinner-special`, `dinner`).
+- **Food claims need a source.** Only say "Michelin" or "rosette" if a source shows it; otherwise describe the food from reviews and say it's from reviews.
+
+**With babies:**
+- **Child-friendly places:** check that places welcome babies.
+- **Timing:** prefer early dinner slots (5–6pm).
+- **Walks:** note which ones work with a pram or need a carrier.
+
+**Without babies:** later dinners and longer days out are fine.
 
 ## 2. Research
 
@@ -29,7 +56,7 @@ Use web search. Cover every category, aiming for 60–80 places in total:
 | `walk` | Walks from the door, short scenic walks, a couple of big ones, flat options for bad weather. Note length, steepness and whether a pram works. |
 | `breakfast` | Breakfast and brunch cafés, and bakeries that open early. |
 | `lunch` | Cafés and pubs, especially ones at or near walk start points. |
-| `dinner` | Relaxed, roomy places with space for a nervous dog. Big pubs, hotels with dog areas, and outdoor heated seating are good. |
+| `dinner` | With the dog: relaxed, roomy places with space for a nervous dog (big pubs, hotels with dog areas, heated outdoor seating). Without the dog: the best food in range, with plenty of options (see Trip modes). |
 | `town` | Towns and villages worth wandering, with what to see. |
 | `todo` | Attractions that allow dogs (railways, castles, gardens, crafts). |
 | `rainy` | Indoor or covered options. |
@@ -38,7 +65,7 @@ Use web search. Cover every category, aiming for 60–80 places in total:
 
 Rules:
 
-- **Dog and child policies:** only state what a source says. If no source confirms a venue's dog policy, set `check: true`. The page shows "Ring ahead: dog policy not confirmed" for those.
+- **Dog and child policies** (when they're coming): only state what a source says. If no source confirms a venue's dog policy, set `check: true`. The page shows "Ring ahead: dog policy not confirmed" for those. Without the dog, reword that label or drop it.
 - **Exclusions:** if a famous local attraction bans dogs or pushchairs, say so in the Tips box rather than listing it.
 - **Season:** check school holidays (book dinners early), clock changes and sunset time, and off-season closures. Put them in Tips.
 - **Don't invent facts:** no made-up opening hours, phone numbers, postcodes or "Michelin" claims. Quote sources' claims as claims.

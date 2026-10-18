@@ -10,4 +10,4 @@ Instructions and a starting page for getting an AI agent to build a phone-friend
 
 Prompt something like:
 
-> Using github.com/Waterdrips/holiday-planner-template/AGENTS.md, build us a holiday planner. We're staying at <address> from <date> to <date>: <who's coming, dog, babies, prams or carriers>. <How often you'll eat out, preferences.>
+> Using github.com/Waterdrips/holiday-planner-template/AGENTS.md, build us a holiday planner. We're staying at <address> from <date> to <date>: <who's coming; are we taking the dog and the baby?>. <How often you'll eat out, preferences.>
